@@ -16,8 +16,6 @@
     "q": "^1.4.1"
   },
   "files": [
-    "lib/",
-    "index.js",
-    "README.md"
+    "lib/"
   ]
 }
