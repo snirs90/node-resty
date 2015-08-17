@@ -127,3 +127,4 @@ This will register the routes under `/api` prefix, for example:
 /api/cars/count
 ```
 
+Inspiration from: https://github.com/baugarten/node-restful
