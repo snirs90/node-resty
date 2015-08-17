@@ -45,6 +45,13 @@ cars.get(function(req, res, next) {
 
 Which defines the path: `/cars`
 
+** patch/put/delete methods defines the routes for a single entity. **
+for example:
+```
+/car/:id
+```
+
+
 ```
 cars.getDetails(function(req, res, next) {
     res.json({message: 'Get list of cars'});
