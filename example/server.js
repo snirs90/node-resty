@@ -5,83 +5,92 @@ var port  	 = process.env.NODE_PORT || 8800;
 var express = require('express');
 var app = express();
 
-var resty = require('./node-resty');
+var resty = require('../lib');
 
-var cars = new resty.resource('cars');
-cars.get(function(req, res, next) {
-    res.json({message: 'Get list of cars'});
+var users = new resty.resource('users');
+users.get(function(req, res, next) {
+    res.json({message: 'Get list of users'});
     next();
 });
 
-cars.before('get', function(req, res, next) {
+users.before('get', function(req, res, next) {
     console.log('I am before');
     next();
 });
 
-cars.after('get', function(req, res, next) {
+users.after('get', function(req, res, next) {
     console.log('I am after');
     next();
 });
 
-cars.route('count', 'get', function(req, res, next) {
-    res.send({message: 'This is a cars count route'});
+users.route('count', 'get', function(req, res, next) {
+    res.send({message: 'This is a users count route'});
     next();
 });
 
-cars.before('count', {
-    handler: function(req, res, next) {
-        console.log('before cars count');
-        next();
-    }
-})
+users
+    .before('count', {
+        handler: function(req, res, next) {
+            console.log('before users count');
+            next();
+        }
+    })
     .after('count', {
         handler: function(req, res, next) {
-            console.log('after cars count');
+            console.log('after users count');
              next();
         }
     });
 
-cars.getDetails(function(req, res, next) {
+
+users.route('count', 'get', {
+    detail: true,
+    handler: function (req, res, next) {
+        res.send({message: 'This is a user count route with the id: ' + req.params.id});
+        next();
+    }
+});
+
+users.getDetails(function(req, res, next) {
     var id = req.params.id;
-    res.json({message: 'Get specific car = ' + id});
+    res.send({message: 'Get specific user = ' + id});
     next();
 });
 
 
 
-cars.before('get', {
-    details: true,
+users.before('get', {
+    detail: true,
     handler: function(req, res, next) {
         console.log('I am before details');
         next();
     }
 });
 
-cars.after('get', {
-    details: true,
+users.after('get', {
+    detail: true,
     handler: function(req, res, next) {
         console.log('I am after details');
         next();
     }
 });
 
-cars.post(function(req, res, next) {
-   res.send({message: 'This is a cars post'});
+users.post(function(req, res, next) {
+   res.send({message: 'This is a user post'});
     next();
 });
 
-cars.before('post', function(req, res, next) {
-    console.log('This is a cars post before');
+users.before('post', function(req, res, next) {
+    console.log('This is a user post before');
     next();
 });
 
-cars.after('post', function(req, res, next) {
-    console.log('This is a cars post after');
+users.after('post', function(req, res, next) {
+    console.log('This is a user post after');
     next();
 });
 
-
-app.use('/api', cars.register());
+app.use('/api', users.register());
 //
 //app.use(function(req, res, next) {
 //    res.status(404).send({ message: 'Sorry cant find that!' });
