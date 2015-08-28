@@ -9,7 +9,17 @@ var resty = require('../lib');
 
 var users = new resty.resource('users');
 users.get(function(req, res, next) {
-    res.json({message: 'Get list of users'});
+    var users = [
+        {
+            "id": 1,
+            "name": "Dave"
+        },
+        {
+            "id": 2,
+            "name": "John"
+        }
+    ];
+    res.json(users);
     next();
 });
 
