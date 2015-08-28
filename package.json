@@ -12,9 +12,7 @@
   "dependencies": {
     "express": "^4.12.4",
     "inflector": "0.0.1",
-    "lodash": "^3.10.0",
-    "mongoose": "^4.0.5",
-    "q": "^1.4.1"
+    "lodash": "^3.10.0"
   },
   "files": [
     "lib/",
@@ -22,6 +20,7 @@
     "CHANGELOG.md"
   ],
   "devDependencies": {
+    "body-parser": "^1.13.3",
     "chai": "^3.2.0",
     "mocha": "^2.2.5",
     "supertest": "^1.1.0"
