@@ -1,13 +1,13 @@
 {
   "name": "node-resty",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Node resty",
   "main": "lib/index.js",
   "scripts": {
     "test": "make test"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Snir Segal <snir.segal@gmail.com>",
+  "license": "MIT",
   "repository": "git://github.com/snirs90/node-resty",
   "dependencies": {
     "express": "^4.12.4",
