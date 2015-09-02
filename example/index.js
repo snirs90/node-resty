@@ -48,10 +48,8 @@ users
     .after('count', {
         handler: function(req, res, next) {
             console.log('after users count');
-             next();
         }
     });
-
 
 users.route('count', 'get', {
     detail: true,
@@ -100,11 +98,16 @@ users.after('post', function(req, res, next) {
     next();
 });
 
+users.put(function(req, res, next) {
+    res.send({message: 'This is a user put'});
+    next();
+});
+
+app.use('/debug', function(req, res, next) {
+    res.send(users.debug());
+});
+
 app.use('/api', users.register());
-//
-//app.use(function(req, res, next) {
-//    res.status(404).send({ message: 'Sorry cant find that!' });
-//});
 
 var server = app.listen(port, function () {
     console.log('Server app listening at port %s', port);

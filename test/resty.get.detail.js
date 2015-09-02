@@ -18,7 +18,6 @@ describe('GET detail route', function() {
 
         users.getDetails(function(req, res, next) {
             res.json(userEntity);
-            next();
         });
 
         app.use('/api', users.register());
@@ -26,7 +25,7 @@ describe('GET detail route', function() {
 
     it('Should return a response with a user object', function(done) {
         request(app)
-            .get('/api/user/1')
+            .get('/api/users/1')
             .expect('Content-Type', /json/)
             .expect(200)
             .expect(userEntity)

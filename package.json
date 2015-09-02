@@ -1,6 +1,6 @@
 {
   "name": "node-resty",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Node resty",
   "main": "lib/index.js",
   "scripts": {
@@ -11,7 +11,6 @@
   "repository": "git://github.com/snirs90/node-resty",
   "dependencies": {
     "express": "^4.12.4",
-    "inflector": "0.0.1",
     "lodash": "^3.10.0"
   },
   "files": [

@@ -44,7 +44,7 @@ describe('after detail filter', function() {
 
     it('Should response with list of users with Bob in the first user', function(done) {
         request(app)
-            .get('/api/user/1/after')
+            .get('/api/users/1/after')
             .expect('Content-Type', /json/)
             .expect(200)
             .expect(function(res) {

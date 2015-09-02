@@ -28,7 +28,7 @@ describe('PUT entity route', function() {
 
     it('Should return a response with 200 http code with an object', function(done) {
         request(app)
-            .put('/api/user/1')
+            .put('/api/users/1')
             .send({ "name": "John" })
             .expect('Content-Type', /json/)
             .expect(200)
