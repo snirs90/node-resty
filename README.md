@@ -3,14 +3,14 @@ node-resty
 
 Create RESTful APIs using express.
 
-Supports the Restangular standard.
+Supports the JSON API standards (http://jsonapi.org/format/#fetching)
 
 # Getting started
 
 require node-resty with:
 
 ```
-var resty = require('./node-resty');
+var resty = require('node-resty');
 ```
 
 ## Creating a new resource:
@@ -48,7 +48,7 @@ Which defines the path: `/users`
 ** patch/put/delete methods defines the routes for a single entity. **
 for example:
 ```
-/user/:id
+/users/:id
 ```
 
 
@@ -58,7 +58,7 @@ users.getDetails(function(req, res, next) {
 });
 ```
 
-Defines the path: `/user/:X`, where the X is the ID of resource model.
+Defines the path: `/users/:X`, where the X is the ID of resource model.
 **Please attention that the path here is the singular version of the resource name**
 
 It is also possible to run a custom route based on the resource name as a prefix
@@ -88,7 +88,7 @@ users.route('count', 'get', {
 });
 ```
 
-This will define the route: GET `/user/1/count`.
+This will define the route: GET `/users/1/count`.
 
 ## Supported filters:
  
@@ -153,7 +153,7 @@ users.before('count', {
 })
 ```
 
-Which will define a `before` filter to the route: `/user/1/count`.
+Which will define a `before` filter to the route: `/users/1/count`.
 
 
 # Registering the resource to the application
@@ -175,7 +175,7 @@ This will register the routes under `/api` prefix, for example:
 
 ```
 /api/users
-/api/user/1
+/api/users/1
 /api/users/count
 ```
 
