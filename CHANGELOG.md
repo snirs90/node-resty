@@ -1,3 +1,6 @@
+# version 0.1.8
+- Initialize express router for each new instance of resty. 
+
 # version 0.1.7
 - Documentation update.
 
