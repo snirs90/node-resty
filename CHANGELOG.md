@@ -1,3 +1,6 @@
+# version 0.1.9
+- Fixing before,after filters to support patch,put,delete methods as path with passing only a middleware.
+
 # version 0.1.8
 - Initialize express router for each new instance of resty. 
 

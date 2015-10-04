@@ -101,7 +101,11 @@ users.after('post', function(req, res, next) {
 users.put(function(req, res, next) {
     res.send({message: 'This is a user put'});
     next();
-});
+})
+    .before('put', function(req, res, next) {
+        console.log('Before put user');
+        next();
+    });
 
 app.use('/debug', function(req, res, next) {
     res.send(users.debug());
