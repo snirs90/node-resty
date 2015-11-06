@@ -1,3 +1,6 @@
+# version 0.2.0
+- Moving to ES6 class.
+
 # version 0.1.9
 - Fixing before,after filters to support patch,put,delete methods as path with passing only a middleware.
 
